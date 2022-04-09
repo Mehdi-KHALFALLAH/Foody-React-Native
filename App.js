@@ -15,7 +15,8 @@ const App = () => {
         }}
         initialRouteName={"Home"}
       >
-        <Stack.Screen name="Home" component={CustomDrawer} />
+        
+        <Stack.Screen name="Home" component={CustomDrawer} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );
