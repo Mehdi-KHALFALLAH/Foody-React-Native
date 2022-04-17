@@ -1,3 +1,5 @@
+/** @format */
+
 import React from "react";
 import { Text, TouchableOpacity, Image, View } from "react-native";
 import {
@@ -22,17 +24,38 @@ const CustomDrawerContent = ({ navigation }) => {
       contentContainerStyle={{ flex: 1 }}
     >
       <View style={{ flex: 1, paddingHorizontal: SIZES.radius }}>
+        <View style={{ alignItems: "flex-start", justifyContent: "center" }}>
+          <TouchableOpacity
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            onPress={() => navigation.closeDrawer()}
+          >
+            <Image
+              source={icons.cross}
+              style={{ height: 35, width: 35, tintColor: COLORS.white }}
+            />
+          </TouchableOpacity>
+        </View>
         <TouchableOpacity
           style={{
+            flexDirection: "row",
+            marginTop: SIZES.radius,
             alignItems: "center",
-            justifyContent: "center",
           }}
-          onPress={() => navigation.closeDrawer()}
+          onPress={() => console.log("profile")}
         >
           <Image
-            source={icons.cross}
-            style={{ height: 35, width: 35, tintColor: COLORS.white }}
+            source={dummyData.myProfile?.profile_image}
+            style={{ height: 50, width: 50, borderRadius: SIZES.radius }}
           />
+          <View style={{ marginLeft: SIZES.radius }}>
+            <Text style={{ color: COLORS.white, ...FONTS.h3 }}>
+              {dummyData.myProfile?.name}
+            </Text>
+            <Text style={{ color: COLORS.white, ...FONTS.body4 }}> </Text>
+          </View>
         </TouchableOpacity>
       </View>
     </DrawerContentScrollView>
@@ -59,12 +82,12 @@ const CustomDrawer = () => {
           backgroundColor: "transparent",
         }}
         initialRouteName="MainLayout"
-        drawerContent={(props) => {
+        drawerContent={props => {
           return <CustomDrawerContent navigation={props.navigation} />;
         }}
       >
         <Drawer.Screen name="MainLayout">
-          {(props) => <MainLayout {...props} />}
+          {props => <MainLayout {...props} />}
         </Drawer.Screen>
       </Drawer.Navigator>
     </View>

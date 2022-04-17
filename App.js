@@ -1,4 +1,6 @@
-import React from "react";
+/** @format */
+
+import React, { useEffect } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 
@@ -15,8 +17,7 @@ const App = () => {
         }}
         initialRouteName={"Home"}
       >
-        
-        <Stack.Screen name="Home" component={CustomDrawer} /> 
+        <Stack.Screen name="Home" component={CustomDrawer} />
       </Stack.Navigator>
     </NavigationContainer>
   );
