@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-import { Text, TouchableOpacity, Image, View } from "react-native";
+import { Text, TouchableOpacity, Image, View, StyleSheet } from "react-native";
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -23,8 +23,16 @@ const CustomDrawerContent = ({ navigation }) => {
       scrollEnabled={true}
       contentContainerStyle={{ flex: 1 }}
     >
-      <View style={{ flex: 1, paddingHorizontal: SIZES.radius }}>
-        <View style={{ alignItems: "flex-start", justifyContent: "center" }}>
+      <View >
+        <View
+          style={{
+            
+            width: "100%",
+            alignItems: "flex-start",
+            justifyContent: "center",
+            flexDirection: "row",
+          }}
+        >
           <TouchableOpacity
             style={{
               alignItems: "center",
@@ -38,25 +46,24 @@ const CustomDrawerContent = ({ navigation }) => {
             />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          style={{
-            flexDirection: "row",
-            marginTop: SIZES.radius,
-            alignItems: "center",
-          }}
-          onPress={() => console.log("profile")}
-        >
-          <Image
-            source={dummyData.myProfile?.profile_image}
-            style={{ height: 50, width: 50, borderRadius: SIZES.radius }}
-          />
-          <View style={{ marginLeft: SIZES.radius }}>
-            <Text style={{ color: COLORS.white, ...FONTS.h3 }}>
-              {dummyData.myProfile?.name}
-            </Text>
-            <Text style={{ color: COLORS.white, ...FONTS.body4 }}> </Text>
-          </View>
-        </TouchableOpacity>
+        <View style={styles.userContainer}>
+          <TouchableOpacity onPress={() => console.log("profile")}>
+            <Image
+              source={dummyData.myProfile?.profile_image}
+              style={{
+                height: 50,
+                width: 50,
+                borderRadius: SIZES.radius,
+              }}
+            />
+          </TouchableOpacity>
+       
+          <Text style={{ color: COLORS.white, ...FONTS.body4, width: "100%" }}>hello </Text>
+          <Text style={{ color: COLORS.white, ...FONTS.h3 }}>
+            {dummyData.myProfile?.name}
+          </Text>
+          
+        </View>
       </View>
     </DrawerContentScrollView>
   );
@@ -70,9 +77,9 @@ const CustomDrawer = () => {
       }}
     >
       <Drawer.Navigator
-        drawerType="slide"
-        overlayColor="transparent"
-        drawerStyle={{
+          drawerType="slide" 
+          overlayColor="transparent" 
+          drawerStyle={{
           flex: 1,
           width: "65%",
           paddingRight: 170,
@@ -90,8 +97,27 @@ const CustomDrawer = () => {
           {props => <MainLayout {...props} />}
         </Drawer.Screen>
       </Drawer.Navigator>
-    </View>
+     </View>
   );
 };
+const styles = StyleSheet.create({
+  name: {
+    flexDirection: "row",
+    marginLeft: SIZES.radius,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  userContainer : {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    width : '100%',
+    marginLeft : 30
+  },
+  headerName : {
+width : "100%"
 
+  }
+});
 export default CustomDrawer;
