@@ -19,11 +19,8 @@ import {
 const Drawer = createDrawerNavigator();
 const CustomDrawerContent = ({ navigation }) => {
   return (
-    <DrawerContentScrollView
-      scrollEnabled={true}
-      contentContainerStyle={{ flex: 1 }}
-    >
-      <View >
+    <DrawerContentScrollView scrollEnabled={true} contentContainerStyle={{ flex: 1 }}>
+      <View>
         <View
           style={{
             
@@ -53,13 +50,13 @@ const CustomDrawerContent = ({ navigation }) => {
               style={{
                 height: 50,
                 width: 50,
-                borderRadius: SIZES.radius,
+                borderRadius: SIZES.radius
               }}
             />
           </TouchableOpacity>
        
-          <Text style={{ color: COLORS.white, ...FONTS.body4, width: "100%" }}>hello </Text>
-          <Text style={{ color: COLORS.white, ...FONTS.h3 }}>
+            <Text style={{ color: COLORS.white, ...FONTS.body4, width: "100%" }}>hello</Text>
+            <Text style={{ color: COLORS.white, ...FONTS.h3 }}>
             {dummyData.myProfile?.name}
           </Text>
           
