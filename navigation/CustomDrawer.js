@@ -19,47 +19,21 @@ import {
 const Drawer = createDrawerNavigator();
 const CustomDrawerContent = ({ navigation }) => {
   return (
-    <DrawerContentScrollView scrollEnabled={true} contentContainerStyle={{ flex: 1 }}>
+    <DrawerContentScrollView scrollEnabled={true} contentContainerStyle={{ flex: 1, flexDirection : "column" }}>
       <View>
-        <View
-          style={{
-            
-            width: "100%",
-            alignItems: "flex-start",
-            justifyContent: "center",
-            flexDirection: "row",
-          }}
-        >
-          <TouchableOpacity
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-            onPress={() => navigation.closeDrawer()}
-          >
-            <Image
-              source={icons.cross}
-              style={{ height: 35, width: 35, tintColor: COLORS.white }}
-            />
+        <View style={{ width: "100%", alignItems: "flex-start", justifyContent: "center",flexDirection: "row"}}>
+          <TouchableOpacity style={{ alignItems: "center", justifyContent: "center" } } onPress={() => navigation.closeDrawer()} >
+            <Image source={icons.cross} style={{ height: 35, width: 35, tintColor: COLORS.white }}/>
           </TouchableOpacity>
         </View>
         <View style={styles.userContainer}>
-          <TouchableOpacity onPress={() => console.log("profile")}>
-            <Image
-              source={dummyData.myProfile?.profile_image}
-              style={{
-                height: 50,
-                width: 50,
-                borderRadius: SIZES.radius
-              }}
-            />
+          <TouchableOpacity onPress={() => console.log("profile") } style = {{}}>
+            <Image  source={dummyData.myProfile?.profile_image} style={{ height: 50, width: 50, borderRadius: SIZES.radius }} />
           </TouchableOpacity>
-       
-            <Text style={{ color: COLORS.white, ...FONTS.body4, width: "100%" }}>hello</Text>
-            <Text style={{ color: COLORS.white, ...FONTS.h3 }}>
-            {dummyData.myProfile?.name}
-          </Text>
-          
+           <View style = {{flexDirection : "row", marginLeft : 20}}> 
+             <Text style={{ color: COLORS.white, ...FONTS.body4, width: "100%" }}>hello</Text>
+             <Text style={{ color: COLORS.white, ...FONTS.h3 }}> {dummyData.myProfile?.name} </Text>
+           </View>
         </View>
       </View>
     </DrawerContentScrollView>
