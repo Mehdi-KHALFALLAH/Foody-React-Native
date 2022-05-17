@@ -47,8 +47,20 @@ const CustomDrawerContent = ({ navigation }) => {
         </View>
         </TouchableOpacity> 
       </View>
-      <View style = {{  marginTop : SIZES.padding, flexDirection: "row", alignItems: "flex-start" }}> 
+      <View style = {{  marginTop : SIZES.padding, flexDirection: "column", alignItems: "flex-start" }}> 
       <CustomDrawerItem  label = {constants.screens.home} icon = {icons.home}/>
+      <CustomDrawerItem  label = {constants.screens.my_wallet} icon = {icons.wallet}/>
+      <CustomDrawerItem  label = {constants.screens.notification} icon = {icons.notification}/>
+      <CustomDrawerItem  label = {constants.screens.favourite} icon = {icons.favourite}/>
+      <View style = {{  height: 1, backgroundColor: 'rgba(255, 255, 255 ,0.5)', alignSelf: 'stretch',marginVertical: 20 }}/> 
+      <CustomDrawerItem  label = "Track Your Order" icon = {icons.location}/>
+      <CustomDrawerItem  label = "Coupons" icon = {icons.coupon}/>
+      <CustomDrawerItem  label = "Settings" icon = {icons.setting}/>
+      <CustomDrawerItem  label = "Invite a Friend" icon = {icons.profile}/>
+      <CustomDrawerItem  label = "Help Center" icon = {icons.help}/>
+      </View>
+      <View style = {{flexDirection : 'row', justifyContent : 'flex-start', alignItems : "center", marginTop : 50}}>
+      <CustomDrawerItem  label = "Logout" icon = {icons.logout}/>
       </View>
       </View>
     </DrawerContentScrollView>
