@@ -7,10 +7,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import CustomDrawer from "./navigation/CustomDrawer.js";
 import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
-import thunk from "redux-thunk"
+import thunk from "redux-thunk";
 import rootReducer from "./stores/rootReducer.js";
 const Stack = createStackNavigator();
-const store = createStore (
+const store = createStore(
   rootReducer,
   applyMiddleware(thunk)
 )

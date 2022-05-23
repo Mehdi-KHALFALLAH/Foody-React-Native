@@ -31,7 +31,7 @@ const CustomDrawerItem = ({label, icon, isFocused,onPress}) => {
   )
 } 
 
-const CustomDrawerContent = ({ navigation, setSelectedTab, selectedTab }) => {
+const CustomDrawerContent = ({ navigation, selectedTab, setSelectedTab }) => {
   return (
     <DrawerContentScrollView scrollEnabled={true}>
       <View style = {{flex : 1, paddingHorizontal : SIZES.radius}}>
@@ -108,10 +108,12 @@ const CustomDrawer = ({selectedTab,setSelectedTab}) => {
           setTimeout (()=> {
            setProgress(props.progress) 
           },0)
-          return <CustomDrawerContent navigation={props.navigation}
+          return (
+          <CustomDrawerContent navigation={props.navigation}
           selectedTab = {selectedTab}
           setSelectedTab = {setSelectedTab}
           />
+          )
         }}
       >
         <Drawer.Screen name="MainLayout">
@@ -151,10 +153,9 @@ function mapStateToProps (state) {
   }
 }
 
-function mapDispatchToProps (dispatch) {
-
+function mapDispatchToProps(dispatch) {
   return {
-    setSelectedTab: (selectedTab) => { return dispatch 
+    setSelectedTab: (selectedTab) => { return dispatch
        (setSelectedTab(selectedTab)) }
   }
 }
